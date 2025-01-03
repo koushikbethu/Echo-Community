@@ -1,0 +1,509 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Echo Enforce Home</title>
+	<!-- CSS and JavaScript references -->
+	<link rel="stylesheet" type="text/css" href="../CSS/header.css">
+	<link rel="stylesheet" type="text/css" href="../CSS/home.css">
+	<link rel="stylesheet" type="text/css" href="../fonts/font-awesome/css/font-awesome.min.css">
+	<script src="../javascript/header.js"></script>
+	<script src="../javascript/home.js"></script>
+	<script src="javascript/delete.js"></script>
+	<script src="javascript/deletepost.js"></script>
+	<!-- Ending of CSS and JavaScrit -->
+
+</head>
+<body onload="newpost();">
+	<!-- Header section -->
+	<div class="headerfixed">
+		<!-- Header start -->
+	<div class="header">
+		<!-- Wrapper start of heading-->
+		<div class="wrapper">
+			<!-- homaj logo -->
+			<a href="home.html"><img src="../images/sss.png" width=120 height=45 class="logoletter"/></a>
+			<!-- Search bar -->
+			<form id="searching">
+			  <input type="text" name="search" placeholder="Search.." id="search">
+			</form>
+
+			<!-- icon bar to navigate to all pages -->
+			<div class="icon-bar">
+			 <ul>
+			 	<!-- home -->
+			 	<li style="border-bottom: 6px solid white;"><a href="home.html" onmouseover="headerchange(1);" onmouseout="headerorigin(1);"><img src="../images/login/home.png" id="homaj-home"><p id="p1">Home</p></a></li>
+			 	<!-- profile -->
+			 	<li> <a href="profile.html" onmouseover="headerchange(2);" onmouseout="headerorigin(2);"><img src="../images/login/profile.png" id="homaj-profile"><p id="p2">Profile</p></a> </li>
+			 	<!-- society -->
+			 	<li><a href="society.html" onmouseover="headerchange(3);" onmouseout="headerorigin(3);"><img src="../images/login/society.png" id="homaj-society"><p id="p3">Society</p></a></li>
+			 	<!-- message -->
+			 	<li> <a href="messages.html" onmouseover="headerchange(4);" onmouseout="headerorigin(4);"><img src="../images/login/message.png" id="homaj-message"><p id="p4">Messages</p></a></li>
+			 	<!-- notification -->
+			 	<li><a href="#" onmouseover="headerchange(5);" onmouseout="headerorigin(5);"><img src="../images/login/notification.png" id="homaj-notification"><p id="p5">Notifications</p></a>
+			 	<div id="notify">
+			 		<p>No New Notification</p>
+			 		<hr style="background-color:white;width: 90%;">
+			 	</div>
+			 	</li>
+			 </ul>	 
+			   
+			</div>
+			<!-- Ending of Icon bar -->
+
+
+		</div>
+		<!-- Wrapper End of heading -->
+
+	</div>
+	<!-- End of header -->
+	</div>
+	<!-- End of header section -->
+
+
+	<!-- Content Section -->
+	<div class="content">
+		<!-- Start wrapper -->
+		<div class="wrapper">
+
+			<!-- Start Left section -->
+			<div class="leftfixed">
+				<!-- start sidebar left -->
+				<div class="sidebarleft">
+					<img src="../images/profile/upload.png"/>
+					<p id="sidename">ECHO ENFORCE</p>
+					<p id="ssn">THE GAMING COMMUNITY</p>
+					<p id="country">India</p>
+					<a href="profile.html" id="viewall">View All</a>
+					<hr>
+					<p id="nosociety">999+</p>
+					<p id="societyname"><a href="society.html">Society</a></p>
+					<p id="logout"><a href="../index.html">Log Out</a></p>
+				</div>
+				<!-- End of sidebar left -->
+			</div>
+			<!-- End of leftfixed -->
+
+			<!-- start of main content section -->
+			<div class="mainnotfixed" id="mainnotfixed">
+				<!-- Start of post an content -->
+				<div class="main mainpost" style="margin-bottom:20px; padding-bottom:10px;">	
+
+					<div class="userimg"><img src="../images/profile/upload.png"/>
+						</div>
+					    <div class="username"><p class="name" style="top:15px;">ECHO ENFORCE</p>
+					    </div>
+						<p class="quotes">
+							<textarea id="mypara" placeholder="Share an article ,photo ,video or idea."></textarea>
+						</p>
+						<p id="message-box"></p>
+						<!-- image load to post -->
+						<div class="post">
+							<img id="load2" class="postimg" src=" "/>
+						</div>
+
+						<div class="postbar">
+							<input type="file" accept="images/*" id="chooseimg" onchange="loadFile(event)" onmouseover="onbuttoncolor()" onmouseout="outbuttoncolor()"/>
+							<button type="button" class="imgbttn" id="imgbttn">&#x1f4f7; Images</button>
+							<button type="button" id="postmypost" class="postmypost" onclick="mypost();">Post</button>
+						</div>
+
+						<script>/*
+							const textarea = document.getElementById('mypara');
+							const messageBox = document.getElementById('message-box');
+
+							// Array of predefined data (already existing posts or restricted inputs)
+							const predefinedData = [
+								"This post is one of the best in all the games",
+								"Another example of restricted content",
+								"This game is harmful to play"
+							];
+
+							textarea.addEventListener('input', () => {
+								const inputValue = textarea.value;
+
+								// Check if the input matches any of the predefined data
+								if (predefinedData.includes(inputValue)) {
+									messageBox.textContent = "Warning: This text matches existing data and will be deleted in 5 seconds due to potential miscommunication.";
+									
+									// Set a timeout to clear the textarea after 5 seconds
+									setTimeout(() => {
+										textarea.value = ''; // Clear the textarea
+										messageBox.textContent = "Input deleted: It leds to miscommunication.";
+									}, 5000);
+								} else {
+									messageBox.textContent = ""; // Clear the message if there's no match
+								}
+							});
+
+							// Example function for image handling (optional)
+							function loadFile(event) {
+								const image = document.getElementById('load2');
+								image.src = URL.createObjectURL(event.target.files[0]);
+								image.onload = () => URL.revokeObjectURL(image.src); // Free memory
+							}
+
+							// Optional button hover color change (add styles in CSS)
+							function onbuttoncolor() {
+								document.getElementById('imgbttn').style.backgroundColor = "#f0f0f0";
+							}
+
+							function outbuttoncolor() {
+								document.getElementById('imgbttn').style.backgroundColor = "";
+							}
+
+							// Post function (customize this logic as needed)
+							function mypost() {
+								alert("This Post is going to delete ..");
+							}
+*/							
+
+
+
+							const textarea = document.getElementById('mypara');
+							const messageBox = document.getElementById('message-box');
+
+							// Array of predefined data (already existing posts or restricted inputs)
+							const predefinedData = [
+								"This post is one of the best in all the games",
+								"Another example of restricted content",
+								"This game is harmful to play",
+								"This game doesn't have any stability in their software but my game is better than this.. for me it is worst experience ",
+								"The scalability of the game is not stable, but I observed that my game is stable",
+								"The process of execution in this game is not that much good , I don't like this game",
+								"The Isolation that implemented in this software of this game is not executing in a proper way , so I simply Avoiding this game",
+								"I dont wanna consider to play this game.."
+							];
+
+							// Check if the input matches restricted content
+							textarea.addEventListener('input', () => {
+								const inputValue = textarea.value;
+
+								if (predefinedData.includes(inputValue)) {
+									messageBox.textContent = "Warning: This text leads to the miscommunication and will be deleted in 5 seconds due to potential miscommunication.";
+									
+									// Set a timeout to clear the textarea after 5 seconds
+									setTimeout(() => {
+										textarea.value = ''; // Clear the textarea
+										messageBox.textContent = "Input deleted: It led to miscommunication.";
+									}, 5000);
+								} else {
+									messageBox.textContent = ""; // Clear the message if there's no match
+								}
+							});
+
+							// Example function for image handling (optional)
+							function loadFile(event) {
+								const image = document.getElementById('load2');
+								image.src = URL.createObjectURL(event.target.files[0]);
+								image.onload = () => URL.revokeObjectURL(image.src); // Free memory
+							}
+
+							// Optional button hover color change
+							function onbuttoncolor() {
+								document.getElementById('imgbttn').style.backgroundColor = "#f0f0f0";
+							}
+
+							function outbuttoncolor() {
+								document.getElementById('imgbttn').style.backgroundColor = "";
+							}
+
+							// Post function
+							function mypost() {
+								const inputValue = textarea.value;
+
+								if (predefinedData.includes(inputValue)) {
+									// If restricted content is detected
+									messageBox.textContent = "This post contains restricted content and will not be posted.";
+								} else if (inputValue.trim() === "") {
+									// Handle empty input
+									messageBox.textContent = "Post cannot be empty.";
+								} else {
+
+									
+									// Allow the post
+									alert("Post submitted successfully!");
+									textarea.value = ''; // Clear the textarea
+									messageBox.textContent = ""; // Clear any messages
+									
+									var div3=document.createElement("DIV");
+									div3.className="post";
+									var img1=document.createElement("img");
+									img1.className="postimg";
+									// img1.src="../images/login/society.jpg";
+									div3.appendChild(img1);
+									div.appendChild(div3);
+								}
+							}
+
+
+
+/*
+const textarea = document.getElementById('mypara');
+const messageBox = document.getElementById('message-box');
+const postsList = document.getElementById('posts-list');  // For the list of posts
+
+// Array of predefined data (restricted content)
+const predefinedData = [
+    "This post is one of the best in all the games",
+    "Another example of restricted content",
+    "This game is harmful to play"
+];
+
+// Check if the input matches restricted content
+textarea.addEventListener('input', () => {
+    const inputValue = textarea.value;
+
+    if (predefinedData.includes(inputValue)) {
+        messageBox.textContent = "Warning: This text matches existing data and will be deleted in 5 seconds due to potential miscommunication.";
+        
+        // Clear the textarea after 5 seconds
+        setTimeout(() => {
+            textarea.value = '';
+            messageBox.textContent = "Input deleted: It led to miscommunication.";
+        }, 5000);
+    } else {
+        messageBox.textContent = ""; // Clear the message if no match
+    }
+});
+
+// Function to post content
+function mypost() {
+    const inputValue = textarea.value.trim(); // Get input and trim whitespace
+
+    if (predefinedData.includes(inputValue)) {
+        // If restricted content is detected
+        messageBox.textContent = "This post contains restricted content and will not be posted.";
+    } else if (inputValue === "") {
+        // If the input is empty
+        messageBox.textContent = "Post cannot be empty.";
+    } else {
+        // Create a new list item (li) for the post
+        const newPost = document.createElement('li');
+        newPost.className = 'post';
+        newPost.textContent = inputValue;  // Add the post content as the text of the list item
+
+        // Append the new post to the list
+        postsList.appendChild(newPost);
+
+        // Clear the textarea and message box after posting
+        textarea.value = '';
+        messageBox.textContent = "";
+    }
+}
+
+// Function to handle file loading (optional)
+function loadFile(event) {
+    const image = document.getElementById('load2');
+    image.src = URL.createObjectURL(event.target.files[0]);
+    image.onload = () => URL.revokeObjectURL(image.src); // Free memory
+}
+
+// Optional button hover effects
+function onbuttoncolor() {
+    document.getElementById('imgbttn').style.backgroundColor = "#f0f0f0";
+}
+
+function outbuttoncolor() {
+    document.getElementById('imgbttn').style.backgroundColor = "";
+}
+
+*/ 
+
+
+						</script>
+
+						<script>
+							/*
+							const load2 = document.getElementById('load2');
+							const chooseimg = document.getElementById('chooseimg');
+							const messageBox = document.getElementById('message-box');
+
+							// Restricted image paths
+							const restrictedImages = ['images/1.jpg', 'images/2.jpg'];
+
+							function loadFile(event) {
+								const file = event.target.files[0];
+								const filePath = file.name.toLowerCase();
+
+								// Display the selected image
+								load2.src = URL.createObjectURL(file);
+								load2.onload = () => URL.revokeObjectURL(load2.src); // Free memory
+
+								// Check if the image matches the restricted images
+								if (restrictedImages.includes(filePath)) {
+									messageBox.textContent = "Warning: This image may lead to miscommunication and will be deleted in 5 seconds.";
+
+									// Delete the post after 5 seconds
+									setTimeout(() => {
+										load2.src = " "; // Clear the image
+										chooseimg.value = ""; // Reset the file input
+										messageBox.textContent = "Post deleted due to miscommunication.";
+									}, 5000);
+								} else {
+									messageBox.textContent = ""; // Clear the message if no match
+								}
+							}
+
+							// Optional hover effect for button
+							function onbuttoncolor() {
+								document.getElementById('imgbttn').style.backgroundColor = "#f0f0f0";
+							}
+
+							function outbuttoncolor() {
+								document.getElementById('imgbttn').style.backgroundColor = "";
+							}
+
+							// Post function (custom logic for posting)
+							function mypost() {
+								alert("This Post is going to delete .. Because it is leads miscommunication");
+							}
+*/
+						</script>
+
+				</div>
+				<!-- End of post an content -->
+				<hr>
+
+				<!-- posted content view -->
+				<div class="allpost">
+					<!-- post 1 by creator-->
+					<div class="mainpost">
+						<div class="userimg"><img src="../images/profile/upload.png "/>
+					    <div class="username">				 <p class="name">Echo Enforce group</p>
+					    </div>
+						<p class="time">9min ago</p>
+						<p class="quotes">
+							The Gaming community for the gamers , who loves to play games.who loves to know about games.
+						</p>
+						<div class="post">
+							<img class="postimg" src="../images/login/network society.jpg"/>
+						</div>
+
+						<div class="likedislike">
+							<p class="like">
+								<span class="nooflike" id="like1">0 </span> likes &nbsp <span class="noofdislike" id="dislike1">0 </span> dislikes
+							</p>
+							<p class="likedisbttn">
+								<span id="thumbsup1" class="fa fa-thumbs-up" onclick="increase('like1','dislike1','thumbsup1','thumbsdown1');"></span> <span id="thumbsdown1" class="fa fa-thumbs-down" onclick="decrease('like1','dislike1','thumbsup1','thumbsdown1');"></span>
+							</p>
+						</div>
+
+					</div>
+					<!-- end of post 1 by creator -->
+
+					<!-- post 2 by creator -->
+					<div class="mainpost">
+						<div class="userimg"><img src="../images/profile/upload.png"/>
+						</div>
+					    <div class="username">				 <p class="name">Echo Enforce group</p>
+					    </div>
+						<p class="time">7min ago</p>
+						<p class="quotes">
+							The Gaming community for the gamers , who loves to play games.who loves to know about games.
+						</p>
+						<div class="post">
+							<img class="postimg" src="../images/login/society.jpg"/>
+						</div>
+
+						<div class="likedislike">
+							<p class="like">
+								<span class="nooflike" id="like2">0 </span> likes &nbsp <span class="noofdislike" id="dislike2">0 </span> dislikes
+							</p>
+							<p class="likedisbttn">
+								<span id="thumbsup2" class="fa fa-thumbs-up" onclick="increase('like2','dislike2','thumbsup2','thumbsdown2');"></span> <span id="thumbsdown2" class="fa fa-thumbs-down" onclick="decrease('like2','dislike2','thumbsup2','thumbsdown2');"></span>
+							</p>
+						</div>
+
+					</div>
+					<!-- end of post 2 by creator -->
+
+
+				</div>
+				<!-- end of posted content view -->
+
+				<!-- button to view more previous post -->
+				<button type="button" id="viewmore" class="viewmore" onclick="newpost();">View More</button>
+			</div>
+			<!-- End of main content section -->
+
+			<!-- start of right section suggestion user -->
+			<div class="rightfixed">
+				<div class="suggesfixed"><p id="suggestion">Suggestion</p></div>
+
+				<!-- Start of right fixed -->
+				<div class="sidebarright">
+
+					<!-- suggested user -->
+					<div class="rightcontent">
+						<img src="../images/profile/other_profile.png"/>
+						<p class="name">Manoj</p>
+						<a href="#" id="connect1" onclick="changelogo('connect1');">&#x271A; Connect</a>
+
+					</div>
+
+					<div class="rightcontent">
+						<img src="../images/profile/other_profile.png"/>
+						<p class="name">Krishna</p>
+						<a href="#" id="connect2" onclick="changelogo('connect2');">&#x271A; Connect</a>
+					</div>
+
+					<div class="rightcontent">
+						<img src="../images/profile/other_profile.png"/>
+						<p class="name">Harshith </p>
+						<a href="#" id="connect3" onclick="changelogo('connect3');">&#x271A; Connect</a>
+					</div>
+
+					<div class="rightcontent">
+						<img src="../images/profile/other_profile.png"/>
+						<p class="name">Vishal</p>
+						<a href="#" id="connect4" onclick="changelogo('connect4');">&#x271A; Connect</a>
+					</div>
+
+					<div class="rightcontent">
+						<img src="../images/profile/other_profile.png"/>
+						<p class="name">Rohit </p>
+						<a href="#" id="connect5" onclick="changelogo('connect5');">&#x271A; Connect</a>
+					</div>
+					<!-- End of sugested user -->
+				</div>
+				<!-- End of right fixed -->
+
+			</div>
+			<!-- End of right section suggestion user -->
+
+
+			<!-- Start of about homaj -->
+			<div class="rightfixed">
+				
+				<div class="sidebarright" style="width: 280px;padding: 4px;margin-top: 20px;height: 150px;">
+					<hr style="top: -25px;">
+				<div class="foot">
+
+					<ul>
+						<li><a href="https://kanna-signin.github.io/About/" target="_blank">About</a></li>
+						<li><a href="">Contact</a></li>
+						<li><a href="https://kanna-signin.github.io/Privacy/" target="_blank">Privacy and Policy</a></li>
+						<li><a href=" https://kanna-signin.github.io/support/" target="_blank">Help</a></li>
+					</ul>
+					<img src="../images/homaj logo.png"/>
+				</div>
+				</div>
+			</div>
+			<!-- End of about homaj -->
+
+			<!-- message bar at the bottom -->
+			<div class="message" id="msg1">
+				<button id="msg2" onclick="showhide()">Messaging</button>
+				<p> No New Messages.</p>
+			</div>
+			<!-- End of message bar at the bottom -->
+
+		</div>
+		<!-- End of wrapper -->
+
+	</div>
+	<!-- End of content section -->
+
+
+</body>
+</html>
